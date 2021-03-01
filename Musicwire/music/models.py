@@ -1,14 +1,14 @@
 from django.contrib.auth.models import Permission, User
 from django.db import models
 from django.db.models.deletion import CASCADE
-
+from django.conf import settings
 
 class Album(models.Model):
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)
-    album_logo = models.FileField()
+    album_logo = models.FileField(upload_to='album_logo/', default=str(settings.MEDIA_ROOT)+'\default_album_cover.png')
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
