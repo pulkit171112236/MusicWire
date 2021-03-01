@@ -29,8 +29,6 @@ def create_album(request):
                         'error_message': 'Image file must be PNG, JPG, or JPEG',
                     }
                     return render(request, 'music/create_album.html', context)
-            else:
-                album.album_logo = 
             album.save()
             return render(request, 'music/detail.html', {'album': album})
         context = {
