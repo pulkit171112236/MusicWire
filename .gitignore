@@ -1,3 +1,4 @@
 
 *.pyc
+Musicwire/media/*
 Musicwire/db.sqlite3
